@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .masthead {
+            height: 10vh;
+            min-height: 300px;
+            background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <title>Matheus de Oliveira</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Prevendo preço de imóvel na cidade de São Paulo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/matheus-de-oliveira-alves/">LinkedIn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/mathdeoliveira">Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full Page Image Header with Vertically Centered Content -->
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="font-weight-light">Machine Learning - Previsão de preço de imóvel</h1>
+                    <p class="lead">Usando Machine Learning podemos prever um preço de um imóvel dado as suas
+                        características</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <header>
+        <div class="container h-100">
+            <form action="{{ url_for('main') }}" method="POST">
+
+                <div class="form-row">
+                    <div class="form-size col-md-6">
+                        <label for="area">Área</label>
+                        <input type="number" class="form-control" id="size" name="size">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="condo">Condomínio</label>
+                        <input type="number" class="form-control" id="condo" name="condo">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="rooms">Quartos</label>
+                        <input type="number" class="form-control" id="rooms" name="rooms">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="toilets">Banheiros</label>
+                        <input type="number" class="form-control" id="toilets" name="toilets">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="suites">Suítes</label>
+                        <input type="number" class="form-control" id="suites" name="suites">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="parking">Vagas de Garagem</label>
+                        <input type="number" class="form-control" id="parking" name="parking">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <select class="form-control" id="district" name="district">
+                            <option>Alto de Pinheiros</option>
+                            <option>Anhanguera</option>
+                            <option>Aricanduva</option>
+                            <option>Artur Alvim</option>
+                            <option>Barra Funda</option>
+                            <option>Bela Vista</option>
+                            <option>Belém</option>
+                            <option>Bom Retiro</option>
+                            <option>Brasilândia</option>
+                            <option>Brooklin</option>
+                            <option>Brás</option>
+                            <option>Butantã</option>
+                            <option>Cachoeirinha</option>
+                            <option>Cambuci</option>
+                            <option>Campo Belo</option>
+                            <option>Campo Grande</option>
+                            <option>Campo Limpo</option>
+                            <option>Cangaíba</option>
+                            <option>Capão Redondo</option>
+                            <option>Carrão</option>
+                            <option>Casa Verde</option>
+                            <option>Cidade Ademar</option>
+                            <option>Cidade Dutra</option>
+                            <option>Cidade Líder</option>
+                            <option>Cidade Tiradentes</option>
+                            <option>Consolação</option>
+                            <option>Cursino</option>
+                            <option>Ermelino Matarazzo</option>
+                            <option>Freguesia do Ó</option>
+                            <option>Grajaú</option>
+                            <option>Guaianazes</option>
+                            <option>Iguatemi</option>
+                            <option>Ipiranga</option>
+                            <option>Itaim Bibi</option>
+                            <option>Itaim Paulista</option>
+                            <option>Itaquera</option>
+                            <option>Jabaquara</option>
+                            <option>Jaguaré</option>
+                            <option>Jaraguá</option>
+                            <option>Jardim Helena</option>
+                            <option>Jardim Paulista</option>
+                            <option>Jardim São Luis</option>
+                            <option>Jardim Ângela</option>
+                            <option>Jaçanã</option>
+                            <option>José Bonifácio</option>
+                            <option>Lajeado</option>
+                            <option>Lapa</option>
+                            <option>Liberdade</option>
+                            <option>Limão</option>
+                            <option>Mandaqui</option>
+                            <option>Medeiros</option>
+                            <option>Moema</option>
+                            <option>Mooca</option>
+                            <option>Morumbi</option>
+                            <option>Pari</option>
+                            <option>Parque do Carmo</option>
+                            <option>Pedreira</option>
+                            <option>Penha</option>
+                            <option>Perdizes</option>
+                            <option>Perus</option>
+                            <option>Pinheiros</option>
+                            <option>Pirituba</option>
+                            <option>Ponte Rasa</option>
+                            <option>Raposo Tavares</option>
+                            <option>República</option>
+                            <option>Rio Pequeno</option>
+                            <option>Sacomã</option>
+                            <option>Santa Cecília</option>
+                            <option>Santana</option>
+                            <option>Santo Amaro</option>
+                            <option>Sapopemba</option>
+                            <option>Saúde</option>
+                            <option>Socorro</option>
+                            <option>São Domingos</option>
+                            <option>São Lucas</option>
+                            <option>São Mateus</option>
+                            <option>São Miguel</option>
+                            <option>São Rafael</option>
+                            <option>Sé</option>
+                            <option>Tatuapé</option>
+                            <option>Tremembé</option>
+                            <option>Tucuruvi</option>
+                            <option>Vila Andrade</option>
+                            <option>Vila Curuçá</option>
+                            <option>Vila Formosa</option>
+                            <option>Vila Guilherme</option>
+                            <option>Vila Jacuí</option>
+                            <option>Vila Leopoldina</option>
+                            <option>Vila Madalena</option>
+                            <option>Vila Maria</option>
+                            <option>Vila Mariana</option>
+                            <option>Vila Matilde</option>
+                            <option>Vila Olimpia</option>
+                            <option>Vila Prudente</option>
+                            <option>Vila Sônia</option>
+                            <option>Água Rasa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Calcular preço</button>
+            </form>
+
+            {% if valor_venda %}
+            <hr>
+            <h2>Preço de Venda: {{ 'R$ {:,.2f}'.format(valor_venda) }}</h2>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
